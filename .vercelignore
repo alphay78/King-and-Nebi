@@ -4,3 +4,17 @@ node_modules
 npm-debug.log
 .env.local
 .DS_Store
+public/how-we-met.jpg
+public/engagement.jpg
+public/gallery-*.jpg
+public/shemgelna.jpg
+public/envelope-*.png
+public/envelope-*.jpeg
+public/invitation-*.png
+public/calendar-*.jpg
+public/calendar-*.png
+public/wax_seal.png
+public/floral_bg.png
+public/hero.jpg
+public/memory-*.jpg
+dist

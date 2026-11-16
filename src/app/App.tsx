@@ -365,7 +365,7 @@ export default function App() {
           </p>
           <div className="mx-auto mt-10 max-w-2xl overflow-hidden border border-[#d9d4c6] bg-[#e8e4da] p-2 shadow-[0_14px_30px_rgba(67,57,38,.14)] sm:p-3">
             <img
-              src="/image.png"
+              src="/Picsart_26-11-16_00-12-57-739.jpg"
               alt="The couple holding hands in their wedding attire"
               className="h-52 w-full object-cover object-center sm:h-72"
               draggable={false}
