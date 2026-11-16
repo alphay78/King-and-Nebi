@@ -2,5 +2,8 @@
   "name": "king-and-nebi",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite"
+  "framework": "vite",
+  "env": {
+    "CI": "true"
+  }
 }
