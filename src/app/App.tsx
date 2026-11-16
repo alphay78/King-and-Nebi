@@ -158,7 +158,7 @@ export default function App() {
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
+    <>
       <iframe
         ref={musicPlayerRef}
         title="Wedding music"
@@ -166,23 +166,25 @@ export default function App() {
         allow="autoplay; encrypted-media"
         className="pointer-events-none fixed h-px w-px opacity-0"
       />
-      {!envelopeOpen && (
-        <DigitalEnvelope
-          key="envelope"
-          onOpenComplete={() => setEnvelopeOpen(true)}
-          lang={lang}
-        />
-      )}
-      {envelopeOpen && !letterDismissed && (
-        <motion.button
-          type="button"
-          className="fixed inset-0 z-[90] flex items-center justify-center overflow-y-auto bg-[#eee6d9] px-4 py-6 sm:px-8"
-          aria-label="Continue to wedding website"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          onClick={() => setLetterDismissed(true)}
-        >
+      <AnimatePresence>
+        {!envelopeOpen && (
+          <DigitalEnvelope
+            key="envelope"
+            onOpenComplete={() => setEnvelopeOpen(true)}
+            lang={lang}
+          />
+        )}
+      </AnimatePresence>
+      
+      <AnimatePresence>
+        {envelopeOpen && !letterDismissed && (
+          <motion.div
+            className="fixed inset-0 z-[90] flex items-center justify-center overflow-y-auto bg-[#eee6d9] px-4 py-6 sm:px-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setLetterDismissed(true)}
+          >
           <div className="relative my-auto w-full max-w-[530px] overflow-hidden rounded-[2rem] border border-[#c9ad78]/70 bg-[#f8f1e5] px-6 pb-9 pt-9 text-center shadow-[0_24px_70px_rgba(74,54,30,.25)] sm:px-12">
             <span
               role="button"
@@ -235,8 +237,9 @@ export default function App() {
               Saturday · November 28 · 2026
             </p>
           </div>
-        </motion.button>
-      )}
+        </motion.div>
+        )}
+      </AnimatePresence>
       {envelopeOpen && letterDismissed && (
         <div className="min-h-screen bg-[#F8F7F5]">
           <button
@@ -628,8 +631,8 @@ export default function App() {
                     transition={{ duration: 0.5 }}
                   >
                     <img
-                      src={additionalImages[currentImageIndex]}
-                      alt={`Wedding moment ${currentImageIndex + 1}`}
+                      src={additionalImages[secondCarouselIndex]}
+                      alt={`Wedding moment ${secondCarouselIndex + 1}`}
                       className="w-full h-full object-cover"
                       draggable={false}
                     />
@@ -643,9 +646,9 @@ export default function App() {
                   {[0, 1, 2].map((index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentImageIndex(index)}
+                      onClick={() => setSecondCarouselIndex(index)}
                       className={`transition-all ${
-                        index === currentImageIndex
+                        index === secondCarouselIndex
                           ? 'bg-[#b7893f] w-8 h-2 rounded-full'
                           : 'bg-[#b7893f]/30 hover:bg-[#b7893f]/60 w-2 h-2 rounded-full'
                       }`}
@@ -723,7 +726,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Fullscreen Image Viewer */}
       <AnimatePresence>
         {fullscreenImageIndex !== null && (
           <motion.div
@@ -754,6 +756,6 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </AnimatePresence>
+    </>
   );
 }
