@@ -234,7 +234,7 @@ export default function App() {
               getting married
             </p>
             <div className="relative mx-auto mt-6 h-[min(48vh,380px)] w-[88%] overflow-hidden rounded-t-[48%] rounded-b-[1.75rem] border-[5px] border-[#f1e2c6] bg-[#d7c2a0] p-1 shadow-[0_14px_28px_rgba(75,52,28,.22)]">
-              <img src="/IMG_0012.JPG" alt="King and Nebi" className="h-full w-full rounded-t-[46%] rounded-b-[1.3rem] object-cover object-[center_57%]" draggable={false} />
+              <img src="/image.png" alt="King and Nebi" className="h-full w-full rounded-t-[46%] rounded-b-[1.3rem] object-cover object-center" draggable={false} />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#4d321f]/20 to-transparent" />
             </div>
             <div className="relative mx-auto mt-5 flex items-center justify-center gap-3 text-[#b7893f]">
@@ -365,7 +365,7 @@ export default function App() {
           </p>
           <div className="mx-auto mt-10 max-w-2xl overflow-hidden border border-[#d9d4c6] bg-[#e8e4da] p-2 shadow-[0_14px_30px_rgba(67,57,38,.14)] sm:p-3">
             <img
-              src="/countdown-couple.jpg"
+              src="/image.png"
               alt="The couple holding hands in their wedding attire"
               className="h-52 w-full object-cover object-center sm:h-72"
               draggable={false}
@@ -427,7 +427,7 @@ export default function App() {
               {/* Photo circle - centered */}
               <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center overflow-hidden shadow-md">
                 <img
-                  src="/IMG_8132.JPG"
+                  src="/image.png"
                   alt="King and Nebi"
                   className="w-full h-full object-cover object-center"
                   draggable={false}
