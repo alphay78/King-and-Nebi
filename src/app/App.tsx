@@ -168,11 +168,22 @@ export default function App() {
       />
       <AnimatePresence>
         {!envelopeOpen && (
-          <DigitalEnvelope
-            key="envelope"
-            onOpenComplete={() => setEnvelopeOpen(true)}
-            lang={lang}
-          />
+          <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#f4eee2]">
+            {/* Language Toggle */}
+            <button
+              onClick={() => setLang(lang === 'en' ? 'am' : 'en')}
+              className="absolute top-6 right-6 z-50 px-4 py-2 rounded-full bg-white/80 hover:bg-white text-[#2d4a38] font-semibold text-sm shadow-lg transition-all"
+              title={lang === 'en' ? 'Switch to Amharic' : 'Switch to English'}
+            >
+              {lang === 'en' ? 'አማርኛ' : 'English'}
+            </button>
+
+            <DigitalEnvelope
+              key="envelope"
+              onOpenComplete={() => setEnvelopeOpen(true)}
+              lang={lang}
+            />
+          </div>
         )}
       </AnimatePresence>
       
@@ -268,8 +279,8 @@ export default function App() {
               className="absolute inset-0 h-full w-full object-cover object-[center_52%]"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/60" />
-            <span className="absolute right-5 top-5 z-10 rounded-full bg-[#f7f1e7]/90 px-5 py-2 text-xs font-semibold tracking-[0.18em] text-[#2d4a38] shadow-lg">
-              EN
+            <span className="absolute right-5 top-5 z-10 rounded-full bg-[#f7f1e7]/90 px-5 py-2 text-xs font-semibold tracking-[0.18em] text-[#2d4a38] shadow-lg cursor-pointer hover:bg-[#f7f1e7] transition-colors" onClick={() => setLang(lang === 'en' ? 'am' : 'en')} title={lang === 'en' ? 'Switch to Amharic' : 'Switch to English'}>
+              {lang === 'en' ? 'አማርኛ' : 'EN'}
             </span>
             <div className="absolute inset-x-0 top-[25%] z-10 px-6 text-[#fffaf2]">
               <div className="mx-auto max-w-xl rounded-2xl bg-black/10 px-4 py-4 text-center backdrop-blur-[1px]">
@@ -277,7 +288,7 @@ export default function App() {
                   className="mb-5 text-3xl text-[#b7893f] drop-shadow-[0_2px_5px_rgba(0,0,0,.8)] sm:text-4xl"
                   style={{ fontFamily: 'Great Vibes, cursive' }}
                 >
-                  Save the date
+                  {lang === 'en' ? 'Save the date' : 'ቀኑን ይያዙ'}
                 </p>
                 <div className="mx-auto mb-5 h-px w-20 bg-[#2d4a38] shadow-[0_1px_4px_rgba(0,0,0,.7)]" />
                 <h1
@@ -290,7 +301,7 @@ export default function App() {
                   className="mt-5 text-[11px] font-medium uppercase tracking-[0.34em] text-[#fffaf2] drop-shadow-[0_2px_5px_rgba(0,0,0,.85)] sm:text-sm"
                   style={{ fontFamily: 'Montserrat, sans-serif' }}
                 >
-                  November 28, 2026
+                  {lang === 'en' ? 'November 28, 2026' : 'ህዳር 19 ቀን 2019 ዓ.ም'}
                 </p>
               </div>
             </div>
@@ -310,7 +321,7 @@ export default function App() {
                 className="text-5xl font-bold leading-none text-[#2d4a38] sm:text-7xl"
                 style={{ fontFamily: 'Great Vibes, cursive' }}
               >
-                Invitation
+                {lang === 'en' ? 'Invitation' : 'ጋብቻ'}
               </h2>
               <div
                 className="relative mx-auto mt-12 max-w-2xl px-8 py-12 text-left shadow-[0_18px_35px_rgba(67,57,38,.16)] sm:px-14 sm:py-16"
@@ -323,9 +334,9 @@ export default function App() {
                 }}
               >
                 <p className="font-serif text-lg italic leading-9 text-[#2d4a38] sm:text-xl">
-                  With grateful hearts, we invite you to celebrate the beginning of our life together.
-                  Your love, prayers, and presence mean so much to us as we begin this beautiful journey
-                  as husband and wife on November 28, 2026.
+                  {lang === 'en' 
+                    ? 'With grateful hearts, we invite you to celebrate the beginning of our life together. Your love, prayers, and presence mean so much to us as we begin this beautiful journey as husband and wife on November 28, 2026.'
+                    : 'በተለይ ከልብ፣ ቤተሰብ እና ወዳጆቻችንን ላይ ብዙ ምግባር ስላላቸው እና የታሪካችንን ክፍል መሆናቸውን ሁሳዊ ስለምንገነዘበው፣ ቀኑን ይያዙ። ህዳር 28 ቀን 2019 ዓ.ም. የሠርግ ዝግጅታችን በጋዜቱ ላይ ታዩ።'}
                 </p>
                 <p
                   className="mt-10 text-right text-4xl text-[#b7893f] sm:text-5xl"
@@ -341,10 +352,10 @@ export default function App() {
           <section className="relative overflow-hidden border-b border-[#d9d4c6] bg-[#f2eee5] px-5 py-24 sm:px-8 sm:py-32">
             <div className="relative mx-auto max-w-3xl text-center text-[#2d4a38]">
               <h2 className="text-6xl leading-none sm:text-8xl" style={{ fontFamily: 'Great Vibes, cursive' }}>
-                Countdown
+                {lang === 'en' ? 'Countdown' : 'ቆጠራ'}
               </h2>
               <p className="mt-8 text-[10px] font-medium uppercase tracking-[0.42em] text-[#b7893f] sm:text-xs">
-                Until November 28, 2026
+                {lang === 'en' ? 'Until November 28, 2026' : 'ህዳር 28 ቀን 2019 ዓ.ም. ድረስ'}
               </p>
               <div className="mx-auto mt-10 max-w-2xl overflow-hidden border border-[#d9d4c6] bg-[#e8e4da] p-2 shadow-[0_14px_30px_rgba(67,57,38,.14)] sm:p-3">
                 <img
@@ -356,10 +367,10 @@ export default function App() {
               </div>
               <div className="mx-auto mt-10 grid max-w-xl grid-cols-4 gap-3 sm:gap-8">
                 {[
-                  { value: timeLeft.days, label: 'Days' },
-                  { value: timeLeft.hours, label: 'Hours' },
-                  { value: timeLeft.minutes, label: 'Minutes' },
-                  { value: timeLeft.seconds, label: 'Seconds' },
+                  { value: timeLeft.days, label: lang === 'en' ? 'Days' : 'ቀናት' },
+                  { value: timeLeft.hours, label: lang === 'en' ? 'Hours' : 'ሰዓታት' },
+                  { value: timeLeft.minutes, label: lang === 'en' ? 'Minutes' : 'ደቂቃዎች' },
+                  { value: timeLeft.seconds, label: lang === 'en' ? 'Seconds' : 'ሰከንዶች' },
                 ].map(({ value, label }) => (
                   <div key={label}>
                     <div className="text-4xl font-light sm:text-6xl" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
@@ -467,7 +478,7 @@ export default function App() {
           <section className="py-20 px-6 bg-white">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-5xl text-center mb-12 font-light" style={{ fontFamily: 'Great Vibes, cursive', color: '#b7893f' }}>
-                Our complete wedding collection
+                {lang === 'en' ? 'Our complete wedding collection' : 'ሙሉ የሠርግ አልበሟ'}
               </h2>
 
               <div className="relative mb-8">
@@ -539,7 +550,7 @@ export default function App() {
           <section className="py-20 px-6 bg-white">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl text-center mb-8 text-[#2d4a38] font-bold" style={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                St. Matthew's Anglican Church
+                {lang === 'en' ? "St. Matthew's Anglican Church" : 'ቅዱስ ማቴዎስ አንግሊካን ቤተክርስቲያን'}
               </h2>
 
               <div className="rounded-2xl overflow-hidden shadow-lg h-96 mb-8">
@@ -562,7 +573,7 @@ export default function App() {
                   className="flex items-center gap-2 px-6 py-3 bg-[#b7893f] text-white rounded-full hover:bg-[#a07835] transition-colors shadow-sm"
                 >
                   <MapPin className="w-4 h-4" />
-                  Get Directions
+                  {lang === 'en' ? 'Get Directions' : 'አቅጣጫዎችን ያግኙ'}
                 </a>
               </div>
             </div>
@@ -572,7 +583,7 @@ export default function App() {
           <section id="gallery" className="py-20 px-6 bg-[#F8F7F5]">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-5xl text-center mb-12 font-light" style={{ fontFamily: 'Great Vibes, cursive', color: '#b7893f' }}>
-                Early memories
+                {lang === 'en' ? 'Early memories' : 'የመጀመሪያ ፎቶዎች'}
               </h2>
 
               <div className="relative max-w-2xl mx-auto">
@@ -618,7 +629,7 @@ export default function App() {
           <section className="py-20 px-6 bg-[#F8F7F5]">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-5xl text-center mb-12 font-light" style={{ fontFamily: 'Great Vibes, cursive', color: '#b7893f' }}>
-                Before moments
+                {lang === 'en' ? 'Before moments' : 'በሠርግ በፊት'}
               </h2>
 
               <div className="relative max-w-2xl mx-auto">
@@ -664,7 +675,7 @@ export default function App() {
           <section className="py-20 px-6 bg-[#F8F7F5]">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-5xl text-center mb-12 font-light" style={{ fontFamily: 'Great Vibes, cursive', color: '#b7893f' }}>
-                Cherished moments
+                {lang === 'en' ? 'Cherished moments' : 'ወደሳቁ ቅጽበቶች'}
               </h2>
 
               <div className="relative max-w-2xl mx-auto">
