@@ -445,9 +445,9 @@ export default function App() {
 
                   <div className="grid grid-cols-7 gap-3">
                     {Array.from({ length: 40 }, (_, index) => {
-                      // November 2026 starts on Sunday (0 empty cells)
-                      // ህዳር 2019 starts on Saturday (1 empty cell)
-                      const emptyStart = lang === 'en' ? 0 : 1;
+                      // November 2026 starts on Friday (5 empty cells for Sun-Thu)
+                      // ህዳር 2019 starts on Saturday (1 empty cell for Sunday)
+                      const emptyStart = lang === 'en' ? 5 : 1;
                       const day = index - emptyStart;
                       const maxDays = lang === 'en' ? 30 : 31; // November has 30 days, ህዳር has 31 days
                       const weddingDay = lang === 'en' ? 28 : 19; // Nov 28 vs ህዳር 19
@@ -596,7 +596,7 @@ export default function App() {
                 {lang === 'en' ? 'Early memories' : translations[lang].earlyMemories}
               </h2>
 
-              <div className="relative max-w-2xl mx-auto">
+              <div className="relative max-w-4xl mx-auto">
                 <div className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50">
                   <motion.div
                     className="absolute w-64 h-80 md:w-72 md:h-96 z-20 shadow-2xl overflow-hidden rounded-2xl border-8 border-white cursor-pointer"
@@ -613,8 +613,22 @@ export default function App() {
                     />
                   </motion.div>
 
-                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform -rotate-12 -translate-x-16 shadow-2xl overflow-hidden rounded-2xl bg-gradient-to-br from-gray-300 to-gray-400 opacity-60"></div>
-                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform rotate-12 translate-x-16 shadow-2xl overflow-hidden rounded-2xl bg-gradient-to-br from-gray-300 to-gray-400 opacity-60"></div>
+                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform -rotate-12 -translate-x-16 shadow-2xl overflow-hidden rounded-2xl border-8 border-white">
+                    <img
+                      src={galleryImages[(currentImageIndex - 1 + galleryImages.length) % galleryImages.length]}
+                      alt={`Memory side ${currentImageIndex}`}
+                      className="w-full h-full object-cover opacity-70"
+                      draggable={false}
+                    />
+                  </div>
+                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform rotate-12 translate-x-16 shadow-2xl overflow-hidden rounded-2xl border-8 border-white">
+                    <img
+                      src={galleryImages[(currentImageIndex + 1) % galleryImages.length]}
+                      alt={`Memory side ${currentImageIndex}`}
+                      className="w-full h-full object-cover opacity-70"
+                      draggable={false}
+                    />
+                  </div>
                 </div>
 
                 <div className="flex justify-center gap-3 mt-8">
@@ -642,7 +656,7 @@ export default function App() {
                 {lang === 'en' ? 'Before moments' : translations[lang].beforeMoments}
               </h2>
 
-              <div className="relative max-w-2xl mx-auto">
+              <div className="relative max-w-4xl mx-auto">
                 <div className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50">
                   <motion.div
                     className="absolute w-64 h-80 md:w-72 md:h-96 z-20 shadow-2xl overflow-hidden rounded-2xl border-8 border-white"
@@ -659,8 +673,22 @@ export default function App() {
                     />
                   </motion.div>
 
-                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform -rotate-12 -translate-x-16 shadow-2xl overflow-hidden rounded-2xl bg-gradient-to-br from-gray-300 to-gray-400 opacity-60"></div>
-                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform rotate-12 translate-x-16 shadow-2xl overflow-hidden rounded-2xl bg-gradient-to-br from-gray-300 to-gray-400 opacity-60"></div>
+                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform -rotate-12 -translate-x-16 shadow-2xl overflow-hidden rounded-2xl border-8 border-white">
+                    <img
+                      src={additionalImages[(secondCarouselIndex - 1 + additionalImages.length) % additionalImages.length]}
+                      alt={`Wedding moment side ${secondCarouselIndex}`}
+                      className="w-full h-full object-cover opacity-70"
+                      draggable={false}
+                    />
+                  </div>
+                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform rotate-12 translate-x-16 shadow-2xl overflow-hidden rounded-2xl border-8 border-white">
+                    <img
+                      src={additionalImages[(secondCarouselIndex + 1) % additionalImages.length]}
+                      alt={`Wedding moment side ${secondCarouselIndex}`}
+                      className="w-full h-full object-cover opacity-70"
+                      draggable={false}
+                    />
+                  </div>
                 </div>
 
                 <div className="flex justify-center gap-3 mt-8">
@@ -688,7 +716,7 @@ export default function App() {
                 {lang === 'en' ? 'Cherished moments' : translations[lang].cherishedMoments}
               </h2>
 
-              <div className="relative max-w-2xl mx-auto">
+              <div className="relative max-w-4xl mx-auto">
                 <div className="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-b from-gray-100 to-gray-50">
                   <motion.div
                     className="absolute w-64 h-80 md:w-72 md:h-96 z-20 shadow-2xl overflow-hidden rounded-2xl border-8 border-white"
@@ -705,8 +733,22 @@ export default function App() {
                     />
                   </motion.div>
 
-                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform -rotate-12 -translate-x-16 shadow-2xl overflow-hidden rounded-2xl bg-gradient-to-br from-gray-300 to-gray-400 opacity-60"></div>
-                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform rotate-12 translate-x-16 shadow-2xl overflow-hidden rounded-2xl bg-gradient-to-br from-gray-300 to-gray-400 opacity-60"></div>
+                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform -rotate-12 -translate-x-16 shadow-2xl overflow-hidden rounded-2xl border-8 border-white">
+                    <img
+                      src={cherished_moments[(thirdCarouselIndex - 1 + cherished_moments.length) % cherished_moments.length]}
+                      alt={`Cherished moment side ${thirdCarouselIndex}`}
+                      className="w-full h-full object-cover opacity-70"
+                      draggable={false}
+                    />
+                  </div>
+                  <div className="absolute w-56 h-72 md:w-64 md:h-80 z-10 transform rotate-12 translate-x-16 shadow-2xl overflow-hidden rounded-2xl border-8 border-white">
+                    <img
+                      src={cherished_moments[(thirdCarouselIndex + 1) % cherished_moments.length]}
+                      alt={`Cherished moment side ${thirdCarouselIndex}`}
+                      className="w-full h-full object-cover opacity-70"
+                      draggable={false}
+                    />
+                  </div>
                 </div>
 
                 <div className="flex justify-center gap-3 mt-8 flex-wrap justify-center">
@@ -732,9 +774,9 @@ export default function App() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="mb-6">
                 <p className="text-[#b7893f] mb-4 leading-relaxed text-2xl sm:text-3xl" style={{ fontFamily: 'serif' }}>
-                  "Faithful is He who calls you, and He also will do it."
+                  "{lang === 'en' ? 'Faithful is He who calls you, and He also will do it.' : translations[lang].footerScripture}"
                 </p>
-                <p className="text-lg text-white font-semibold">1 Thessalonians 5:24</p>
+                <p className="text-lg text-white font-semibold">{lang === 'en' ? '1 Thessalonians 5:24' : translations[lang].footerScriptureRef}</p>
               </div>
 
               <h2 className="text-white mb-6 font-bold" style={{ fontFamily: 'Great Vibes, cursive', fontSize: '3rem' }}>

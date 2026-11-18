@@ -29,6 +29,8 @@ export const translations = {
     fri: 'Fri',
     sat: 'Sat',
     weddingTime: '9:00 LT',
+    footerScripture: 'Faithful is He who calls you, and He also will do it.',
+    footerScriptureRef: '1 Thessalonians 5:24',
   },
 
   am: {
@@ -59,5 +61,7 @@ export const translations = {
     fri: 'ዓርብ',
     sat: 'ቅዳሜ',
     weddingTime: '9:00 ሰዓት',
+    footerScripture: 'የሚጠራችሁ የታመነ ነው፥ እርሱም ደግሞ ያደርገዋል።',
+    footerScriptureRef: '1ኛ ወደ ተሰሎንቄ ሰዎች 5:24',
   },
 };
