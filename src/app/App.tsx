@@ -29,7 +29,12 @@ export default function App() {
   ];
   const [fullscreenImageIndex, setFullscreenImageIndex] = useState<number | null>(null);
   const musicPlayerRef = useRef<HTMLIFrameElement>(null);
-  const [lang, setLang] = useState<'en' | 'am'>('am');
+  const [lang, setLang] = useState<'en' | 'am'>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('lang') as 'en' | 'am') || 'am';
+    }
+    return 'am';
+  });
   const [timeLeft, setTimeLeft] = useState({ years: 0, days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [married, setMarried] = useState(false);
 
@@ -120,6 +125,10 @@ export default function App() {
     );
     setAudioPlaying((isPlaying) => !isPlaying);
   };
+
+  useEffect(() => {
+    localStorage.setItem('lang', lang);
+  }, [lang]);
 
   useEffect(() => {
     const weddingDate = new Date('2026-11-28T09:00:00').getTime();
