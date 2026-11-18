@@ -444,20 +444,28 @@ export default function App() {
                   </div>
 
                   <div className="grid grid-cols-7 gap-3">
-                    {Array.from({ length: 30 }, (_, index) => {
-                      const day = index + 1;
-                      return (
+                    {Array.from({ length: 40 }, (_, index) => {
+                      // November 2026 starts on Sunday (0 empty cells)
+                      // ህዳር 2019 starts on Saturday (1 empty cell)
+                      const emptyStart = lang === 'en' ? 0 : 1;
+                      const day = index - emptyStart;
+                      const maxDays = lang === 'en' ? 30 : 31; // November has 30 days, ህዳር has 31 days
+                      const weddingDay = lang === 'en' ? 28 : 19; // Nov 28 vs ህዳር 19
+                      
+                      return day <= 0 ? (
+                        <div key={`empty-${index}`}></div>
+                      ) : day > maxDays ? null : (
                         <div
                           key={day}
                           className={`h-8 flex items-center justify-center rounded-full transition-all text-sm relative ${
-                            day === 28
+                            day === weddingDay
                               ? 'text-white'
                               : 'text-[#2d4a38]'
                           }`}
                         >
-                          {day === 28 ? (
+                          {day === weddingDay ? (
                             <>
-                              <span className="text-[#b7893f] font-semibold">28</span>
+                              <span className="text-[#b7893f] font-semibold">{day}</span>
                               <Heart className="w-3 h-3 text-[#b7893f] absolute -top-2 -right-1" fill="#b7893f" />
                             </>
                           ) : (
