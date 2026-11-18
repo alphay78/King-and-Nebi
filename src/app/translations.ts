@@ -31,6 +31,8 @@ export const translations = {
     weddingTime: '9:00 LT',
     footerScripture: 'Faithful is He who calls you, and He also will do it.',
     footerScriptureRef: '1 Thessalonians 5:24',
+    languageToggleAmharic: 'አማርኛ',
+    languageToggleEnglish: 'English',
   },
 
   am: {
@@ -44,7 +46,7 @@ export const translations = {
     seconds: 'ሰከንዶች',
     invitation: 'ጥሪ',
     invitationText: 'የማክበር ሰላምታችንን እያቀረብን የጋብቻትንን ሰነ-ስርዐት የሚፈጸመው ቅዳሜ ህዳር 19, 2019 አ.ም ስለሆነ በቅዱስ ማቴዎስ አንግሊካን ቤተክርስቲያን ከቀኑ 9፡00 ላይ በምናደርገው የቃልኪዳን ፕሮግራም ላይ ተገኝተው የደስታችን ተካፋይ እንዲሆኑ በአክብሮት ጠርተኖታል።',
-    earlyMemories: 'የመጀመሪያ ፎቶዎች',
+    earlyMemories: 'ትውስታዎቻችን',
     beforeMoments: 'በሠርግ በፊት',
     cherishedMoments: 'የማይረሱ ጊዜያቶች',
     completeCollection: 'የሠርግ አልበም',
@@ -63,5 +65,7 @@ export const translations = {
     weddingTime: '9:00 ሰዓት',
     footerScripture: 'የሚጠራችሁ የታመነ ነው፥ እርሱም ደግሞ ያደርገዋል።',
     footerScriptureRef: '1ኛ ወደ ተሰሎንቄ ሰዎች 5:24',
+    languageToggleAmharic: 'አማርኛ',
+    languageToggleEnglish: 'English',
   },
 };
