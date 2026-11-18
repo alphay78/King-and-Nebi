@@ -288,7 +288,7 @@ export default function App() {
                   className="mb-5 text-3xl text-[#b7893f] drop-shadow-[0_2px_5px_rgba(0,0,0,.8)] sm:text-4xl"
                   style={{ fontFamily: 'Great Vibes, cursive' }}
                 >
-                  {lang === 'en' ? 'Save the date' : 'ቀኑን ይያዙ'}
+                  {lang === 'en' ? 'Save the date' : 'የጋብቻ ቀናችን መጥሪያ'}
                 </p>
                 <div className="mx-auto mb-5 h-px w-20 bg-[#2d4a38] shadow-[0_1px_4px_rgba(0,0,0,.7)]" />
                 <h1
