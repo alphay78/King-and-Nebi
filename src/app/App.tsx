@@ -290,7 +290,7 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/60" />
             <button
               onClick={() => setLang(lang === 'en' ? 'am' : 'en')}
-              className="absolute right-5 top-5 z-10 rounded-full bg-[#f7f1e7]/90 px-5 py-2 text-xs font-semibold tracking-[0.18em] text-[#2d4a38] shadow-lg cursor-pointer hover:bg-[#f7f1e7] transition-colors border-none"
+              className="absolute right-5 top-5 z-10 px-4 py-2 rounded-full bg-white/80 hover:bg-white text-[#2d4a38] font-semibold text-sm shadow-lg transition-all border-none"
               title={lang === 'en' ? 'Switch to Amharic' : 'Switch to English'}
             >
               {lang === 'en' ? 'English' : 'አማርኛ'}
